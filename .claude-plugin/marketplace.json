@@ -1,0 +1,14 @@
+{
+  "name": "product-engineer-kit",
+  "description": "Product Engineer Kit: skills and Agent Visualizer for Claude Code.",
+  "owner": {
+    "name": "CodeurSenior"
+  },
+  "plugins": [
+    {
+      "name": "pek",
+      "source": "./",
+      "description": "Product Engineer Kit skills and Agent Visualizer for Claude Code."
+    }
+  ]
+}

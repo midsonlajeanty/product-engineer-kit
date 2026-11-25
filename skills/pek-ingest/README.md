@@ -4,21 +4,27 @@
 
 ## Install and invoke
 
+In Claude Code, install the whole kit as a plugin:
+
+```text
+/plugin install pek --marketplace codeursenior/product-engineer-kit
+```
+
+Then invoke it, for example:
+
+```text
+/pek:pek-ingest Record the durable decisions from this discussion in the project context.
+```
+
+With another agent, install the skill with the [skills CLI](https://github.com/vercel-labs/skills), setting `-a` to your agent (`codex`, `github-copilot`, `cursor`, `claude-code`):
+
 ```bash
 npx skills add codeursenior/product-engineer-kit --skill pek-ingest -g -a codex
 ```
 
-`-g` installs for your user account. Omit it to install for the current project. Installation uses the [skills CLI](https://github.com/vercel-labs/skills); the skill itself has no runtime, API key, or dependency on Agent Visualizer or another skill.
+`-g` installs for your user account. Omit it to install for the current project. Start a new session after installation and invoke it with `$pek-ingest` in Codex or your agent's own mechanism.
 
-In Codex, start a new session after installation and invoke, for example:
-
-```text
-$pek-ingest Record the durable decisions from this discussion in the project context.
-```
-
-Codex can select it automatically when the request matches, or you can invoke it explicitly.
-
-For Claude Code or Cursor, replace `codex` with `claude-code` or `cursor` in the installation command and use that agent's supported invocation mechanism. The workflow is portable Markdown; `agents/openai.yaml` policy applies to Codex only. These harnesses have not been behaviorally verified for this skill.
+The agent can select it automatically when the request matches, or you can invoke it explicitly. The skill has no runtime, API key, or dependency on Agent Visualizer or another skill. The workflow is portable Markdown; agents other than Codex have not been behaviorally verified for this skill.
 
 ## Scope and limits
 

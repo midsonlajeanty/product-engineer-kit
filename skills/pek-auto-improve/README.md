@@ -4,13 +4,23 @@
 
 ## Install
 
+In Claude Code, install the whole kit as a plugin:
+
+```text
+/plugin install pek --marketplace codeursenior/product-engineer-kit
+```
+
+Then invoke `/pek:pek-auto-improve` at the end of a session.
+
+With another agent, install the skill with the [skills CLI](https://github.com/vercel-labs/skills), setting `-a` to your agent (`codex`, `github-copilot`, `cursor`, `claude-code`):
+
 ```bash
 npx skills add codeursenior/product-engineer-kit --skill pek-auto-improve -g -a codex
 ```
 
-Invoke `$pek-auto-improve` at the end of a Codex session. It presents numbered proposals with their target files. Choose the proposals to apply, all, or none. When the conversation contains no lasting lesson, it says so without creating one.
+`-g` installs for your user account. Omit it to install for the current project. Invoke it with `$pek-auto-improve` in Codex or your agent's own mechanism.
 
-For Claude Code or Cursor, replace `codex` with `claude-code` or `cursor` in the installation command and invoke the skill using your agent's supported mechanism. The instructions need no runtime, API key, or other skill. Installation uses the [skills CLI](https://github.com/vercel-labs/skills); the skill itself uses the conversation and your agent's existing file tools. Codex metadata keeps automatic invocation disabled.
+It presents numbered proposals with their target files. Choose the proposals to apply, all, or none. When the conversation contains no lasting lesson, it says so without creating one. The instructions need no runtime, API key, or other skill; the skill uses the conversation and your agent's existing file tools. Codex metadata keeps automatic invocation disabled.
 
 [View on skills.sh](https://skills.sh/codeursenior/product-engineer-kit/pek-auto-improve)
 

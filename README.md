@@ -11,6 +11,14 @@
 | [PEK Grill Me](skills/pek-grill-me/README.md)         | Clarifier une idée, une question à la fois.                          |
 | [PEK Auto Improve](skills/pek-auto-improve/README.md) | Transformer les corrections d’une session en améliorations durables. |
 
+Dans Claude Code, installez tout le kit comme plugin :
+
+```
+/plugin install pek --marketplace codeursenior/product-engineer-kit
+```
+
+Les skills deviennent `/pek:pek-ingest`, `/pek:pek-root-cause`, `/pek:pek-grill-me` et `/pek:pek-auto-improve`, et `/pek:audit` ouvre Agent Visualizer.
+
 [Agent Visualizer](packages/agent-visualizer/README.md) · [Les skills sur skills.sh](https://skills.sh/codeursenior/product-engineer-kit) · [YouTube CodeurSenior](https://www.youtube.com/@CodeurSenior)
 
 Pour progresser en Product Engineering et mieux défendre vos décisions techniques, [rejoignez ma newsletter](https://codeursenior.substack.com/).

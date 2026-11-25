@@ -1,0 +1,12 @@
+{
+  "name": "pek",
+  "description": "Product Engineer Kit: skills to keep project context, find root causes, clarify ideas and improve your agent, plus Agent Visualizer.",
+  "author": {
+    "name": "CodeurSenior",
+    "url": "https://github.com/codeursenior"
+  },
+  "homepage": "https://github.com/codeursenior/product-engineer-kit",
+  "repository": "https://github.com/codeursenior/product-engineer-kit",
+  "license": "MIT",
+  "keywords": ["product-engineering", "skills", "context", "root-cause"]
+}
