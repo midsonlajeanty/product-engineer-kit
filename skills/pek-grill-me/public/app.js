@@ -146,7 +146,7 @@ function render(events) {
     const label = document.createElement("strong");
     label.textContent =
       event.role === "agent"
-        ? "Codex"
+        ? "Agent"
         : event.role === "user"
           ? "Vous"
           : "Session";
@@ -161,7 +161,7 @@ function render(events) {
     } else if (event.role === "user") {
       canAnswer = false;
       choices.replaceChildren();
-      setActivity("busy", "Codex prépare la suite…");
+      setActivity("busy", "L’agent prépare la suite…");
     }
   }
   updateControls();
@@ -176,7 +176,7 @@ function finish() {
   sessionLabel.textContent = "Terminé";
   setActivity(
     "closed",
-    "Entretien terminé. Vous pouvez fermer cet onglet et revenir à Codex.",
+    "Entretien terminé. Vous pouvez fermer cet onglet et revenir à votre agent.",
   );
   updateControls();
   api("close-ack", { method: "POST", body: "{}" })
@@ -221,7 +221,7 @@ form.addEventListener("submit", async (event) => {
     render([{ id: data.id, role: "user", text: data.text }]);
     if (cursor === data.id) {
       canAnswer = false;
-      setActivity("busy", "Codex prépare la suite…");
+      setActivity("busy", "L’agent prépare la suite…");
     }
     scrollToLatest();
   } catch {
@@ -261,20 +261,23 @@ close.addEventListener("click", async () => {
     finish();
   } catch {
     close.disabled = false;
-    setActivity("error", "Fermeture échouée. Réessayez ou revenez à Codex.");
+    setActivity(
+      "error",
+      "Fermeture échouée. Réessayez ou revenez à votre agent.",
+    );
   }
 });
 
 if (!token) {
   setActivity(
     "error",
-    "Lien de session invalide. Revenez à Codex pour relancer l’entretien.",
+    "Lien de session invalide. Revenez à votre agent pour relancer l’entretien.",
   );
   answer.disabled = true;
   send.disabled = true;
   close.disabled = true;
 } else {
-  setActivity("busy", "Codex prépare sa première question…");
+  setActivity("busy", "L’agent prépare sa première question…");
   updateControls();
   api("history")
     .then((data) => {
@@ -285,7 +288,7 @@ if (!token) {
     .catch(() =>
       setActivity(
         "error",
-        "Session inaccessible. Revenez à Codex pour relancer l’entretien.",
+        "Session inaccessible. Revenez à votre agent pour relancer l’entretien.",
       ),
     );
 }
